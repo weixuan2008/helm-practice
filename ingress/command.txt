@@ -1,6 +1,6 @@
 https://blog.csdn.net/a13568hki/article/details/124452407
 https://blog.csdn.net/ichen820/article/details/118439027
-
+https://kubernetes.github.io/ingress-nginx/deploy/
 
 
 kubectl create namespace sit
