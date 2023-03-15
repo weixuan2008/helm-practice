@@ -1,0 +1,22 @@
+https://blog.csdn.net/a13568hki/article/details/124452407
+https://blog.csdn.net/ichen820/article/details/118439027
+
+
+
+kubectl create namespace sit
+kubectl apply -f tomcat-nginx.yaml 
+kubectl get svc -n sit
+kubectl get pod -n sit
+
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/nginx-0.30.0/deploy/static/mandatory.yaml
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/nginx-0.30.0/deploy/static/provider/baremetal/service-nodeport.yaml
+kubectl apply -f mandatory.yaml
+kubectl apply -f service-nodeport.yaml
+
+kubectl create -f ingress-http.yaml 
+
+kubectl get pod -n ingress-nginx   
+kubectl get svc -n ingress-nginx
+
+
+
