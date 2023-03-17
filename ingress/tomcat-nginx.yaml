@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: nginx:1.17.1
+        image: nginx:1.22.1
         ports:
         - containerPort: 80
 ---
@@ -36,7 +36,7 @@ spec:
     spec:
       containers:
       - name: tomcat
-        image: tomcat:8.5-jre10-slim
+        image: tomcat:9.0.73-jdk17-temurin-jammy
         ports:
         - containerPort: 8080
 
@@ -48,8 +48,8 @@ metadata:
   namespace: sit
 spec:
   ports:
-    - port: 9000
-      name: nginx
+  - port: 9000
+    name: nginx
   clusterIP: None
   selector:
     app: nginx-pod
@@ -61,8 +61,8 @@ metadata:
   namespace: sit
 spec:
   ports:
-    - port: 8080
-      name: tomcat
+  - port: 8080
+    name: tomcat
   clusterIP: None
   selector:
     app: tomcat-pod
