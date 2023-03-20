@@ -48,7 +48,7 @@ metadata:
   namespace: sit
 spec:
   ports:
-  - port: 9000
+  - port: 9090
     name: nginx
   clusterIP: None
   selector:

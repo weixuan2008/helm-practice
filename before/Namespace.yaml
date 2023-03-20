@@ -1,6 +1,6 @@
-apiVersion: app/v1
+apiVersion: v1
 kind: Namespace
 metadata:
-  name: nginx-ns
+  name: sit
   labels:
-    name: nginx-ns-label
+    name: sit-label

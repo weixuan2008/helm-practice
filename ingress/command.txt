@@ -19,4 +19,25 @@ kubectl get pod -n ingress-nginx
 kubectl get svc -n ingress-nginx
 
 
+kubectl exec -it podname -n sit -- sh
+curl http://localhost
+
+
+
+
+kubectl apply -f Deployment.yaml
+kubectl apply -f Service.yaml
+kubectl apply -f Ingress.yaml
+kubectl create -f Namespace.yaml
+
+kubectl get namespace
+kubectl create ns nginx-ns
+kubectl delete namespaces nginx-ns
+
+kubectl describe deployment nginx-deployment
+kubectl describe pod <pod-name>
+
+
+
+
 
