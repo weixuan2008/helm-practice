@@ -8,12 +8,34 @@ kubectl apply -f tomcat-nginx.yaml
 kubectl get svc -n sit
 kubectl get pod -n sit
 
+# install ingress controller and service
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/nginx-0.30.0/deploy/static/mandatory.yaml
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/nginx-0.30.0/deploy/static/provider/baremetal/service-nodeport.yaml
 kubectl apply -f mandatory.yaml
 kubectl apply -f service-nodeport.yaml
 
 kubectl create -f ingress-http.yaml 
+
+
+# install MetalLB
+https://metallb.universe.tf/installation/ 
+1. If you’re using kube-proxy in IPVS mode, since Kubernetes v1.14.2 you have to enable strict ARP mode.
+kubectl edit configmap -n kube-system kube-proxy
+2. update
+apiVersion: kubeproxy.config.k8s.io/v1alpha1
+kind: KubeProxyConfiguration
+mode: "ipvs"
+ipvs:
+  strictARP: true
+
+3. To install MetalLB, apply the manifest:
+kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.13.9/config/manifests/metallb-native.yaml
+This will deploy MetalLB to your cluster, under the metallb-system namespace. 
+
+
+
+
+
 
 kubectl get pod -n ingress-nginx   
 kubectl get svc -n ingress-nginx
