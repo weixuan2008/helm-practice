@@ -13,6 +13,8 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/ngin
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/nginx-0.30.0/deploy/static/provider/baremetal/service-nodeport.yaml
 kubectl apply -f mandatory.yaml
 kubectl apply -f service-nodeport.yaml
+不能下载image从google register  https://blog.csdn.net/weixin_43988498/article/details/122792536   
+
 
 kubectl create -f ingress-http.yaml 
 
