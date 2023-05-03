@@ -34,9 +34,6 @@ This will deploy MetalLB to your cluster, under the metallb-system namespace.
 
 
 
-
-
-
 kubectl get pod -n ingress-nginx   
 kubectl get svc -n ingress-nginx
 
