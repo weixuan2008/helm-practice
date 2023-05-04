@@ -7,6 +7,7 @@ kubectl create namespace sit
 kubectl apply -f tomcat-nginx.yaml 
 kubectl get svc -n sit
 kubectl get pod -n sit
+kubectl get pod <pod-name> -o wide
 
 # install ingress controller and service
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/nginx-0.30.0/deploy/static/mandatory.yaml
@@ -14,9 +15,11 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/ngin
 kubectl apply -f mandatory.yaml
 kubectl apply -f service-nodeport.yaml
 不能下载image从google register  https://blog.csdn.net/weixin_43988498/article/details/122792536   
-
+k8s 从 1.17.0 升级到 1.22.3 之后部署 ingress升级后问题  https://www.dianjilingqu.com/284246.html
 
 kubectl create -f ingress-http.yaml 
+
+kubectl get deployment --all-namespaces
 
 
 # install MetalLB
