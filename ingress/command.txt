@@ -1,3 +1,6 @@
+K8s超详细安装部署流程 https://blog.csdn.net/JDKSDD/article/details/126500985
+
+
 https://blog.csdn.net/a13568hki/article/details/124452407
 https://blog.csdn.net/ichen820/article/details/118439027
 https://kubernetes.github.io/ingress-nginx/deploy/
@@ -61,7 +64,32 @@ kubectl delete namespaces nginx-ns
 kubectl describe deployment nginx-deployment
 kubectl describe pod <pod-name>
 
+// trouble shooting command
+iptables -L -n
+netstat -tulpn
+netstat -rn
+
+kubectl get pod -n kube-system
+journalctl -xefu kubelet
+kubectl get po -o wide
+ 
+ 
+sudo /etc/init.d/network restart
 
 
 
 
+----------------------更改镜像仓库--------------------------------
+vi /etc/docker/daemon.json
+
+{
+  "registry-mirrors": ["https://docker.mirrors.ustc.edu.cn"],
+  "exec-opts": ["native.cgroupdriver=systemd"]
+}
+
+systemctl daemon-reload
+systemctl restart docke
+
+------------------------------------------------------
+curl http://hy.sqsx.com
+curl http://192.168.1.220
