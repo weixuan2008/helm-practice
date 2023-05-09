@@ -90,6 +90,27 @@ vi /etc/docker/daemon.json
 systemctl daemon-reload
 systemctl restart docke
 
-------------------------------------------------------
+------------------------curl command------------------------------
 curl http://hy.sqsx.com
 curl http://192.168.1.220
+
+------------------------nginx ingress tls authotication----------
+#kubectl create secret <type> <name> <data> <options>
+kubectl get secret
+kubectl describe secrets sqsx-ingress-secret
+
+
+
+https://blog.csdn.net/lucky_ykcul/article/details/126486945
+openssl genrsa -out server.key 2048
+openssl req -new -key server.key -out server.csr
+openssl x509 -req -days 3650 -in server.csr -signkey server.key -out server.crt
+kubectl create --namespace=sit secret tls sqsx-ingress-secret --key server.key --cert server.crt
+curl --cacert server.crt https://hys.sqsx.com
+curl http://hy.sqsx.com
+
+
+
+
+
+	
